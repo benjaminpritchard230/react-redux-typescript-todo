@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 export interface Task {
   name: string;
@@ -29,27 +29,27 @@ export const taskListSlice = createSlice({
   name: "taskList",
   initialState,
   reducers: {
-    save: (state, param) => {
-      const { payload } = param;
+    save: (state, action: PayloadAction<Task>) => {
+      const { payload } = action;
       state.value = [...state.value, payload];
     },
-    done: (state, param) => {
-      const { payload } = param;
-      const index = state.value.findIndex((task) => task.id === payload);
+    done: (state, action: PayloadAction<Task>) => {
+      const { payload } = action;
+      const index = state.value.findIndex((task) => task.id === payload.id);
       const newArray = [...state.value];
       newArray[index].done = !newArray[index].done;
       state.value = newArray;
     },
-    edit: (state, param) => {
-      const { payload } = param;
+    edit: (state, action: PayloadAction<Task>) => {
+      const { payload } = action;
       const index = state.value.findIndex((task) => task.id === payload.id);
       const newArray = [...state.value];
-      newArray[index].name = payload.text;
+      newArray[index].name = payload.name;
       state.value = newArray;
     },
-    remove: (state, param) => {
-      const { payload } = param;
-      const index = state.value.findIndex((task) => task.id === payload);
+    remove: (state, action: PayloadAction<Task>) => {
+      const { payload } = action;
+      const index = state.value.findIndex((task) => task.id === payload.id);
       let newArray = [...state.value];
 
       newArray.splice(index, 1);
@@ -58,8 +58,8 @@ export const taskListSlice = createSlice({
     clear: (state) => {
       state.value = [];
     },
-    doneDelete: (state, param) => {
-      const { payload } = param;
+    doneDelete: (state, action) => {
+      const { payload } = action;
 
       state.value = payload;
     },

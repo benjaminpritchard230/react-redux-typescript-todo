@@ -13,15 +13,20 @@ import { Task } from "../features/taskList/taskListSlice";
 
 interface Props {
   task: Task;
+  editDialog: boolean;
+  setEditDialog: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const TaskCardButtons = ({ task }: Props) => {
+const TaskCardButtons = ({ task, editDialog, setEditDialog }: Props) => {
   const dispatch = useDispatch();
   const handleDoneClick = (): void => {
-    dispatch(done(task.id));
+    dispatch(done(task));
   };
   const handleDeleteClick = (): void => {
-    dispatch(remove(task.id));
+    dispatch(remove(task));
+  };
+  const handleEditClick = () => {
+    setEditDialog(true);
   };
   return (
     <Stack
@@ -44,7 +49,7 @@ const TaskCardButtons = ({ task }: Props) => {
       <Tooltip title="Edit title" placement="top">
         <IconButton
           onClick={() => {
-            // setEditBox(!editBox);
+            handleEditClick();
           }}
         >
           <Avatar>

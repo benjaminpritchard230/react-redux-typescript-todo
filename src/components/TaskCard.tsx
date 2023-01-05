@@ -14,6 +14,7 @@ import TextField from "@mui/material/TextField";
 import { edit } from "../features/taskList/taskListSlice";
 import { Task } from "../features/taskList/taskListSlice";
 import TaskCardButtons from "./TaskCardButtons";
+import EditDialog from "./EditDialog";
 
 interface Props {
   task: Task;
@@ -33,6 +34,7 @@ const style = {
 };
 
 const TaskCard = ({ task }: Props) => {
+  const [editDialog, setEditDialog] = useState(false);
   return (
     <Grid item xs={12} md={6} lg={4}>
       <Item sx={{ m: 0.5 }}>
@@ -48,8 +50,8 @@ const TaskCard = ({ task }: Props) => {
             <TaskCardButtons
               key={task.id}
               task={task}
-              // editDialog={editDialog}
-              // setEditDialog={setEditDialog}
+              editDialog={editDialog}
+              setEditDialog={setEditDialog}
               // editText={editText}
               // setEditText={setEditText}
               // editBox={editBox}
@@ -58,6 +60,12 @@ const TaskCard = ({ task }: Props) => {
           </CardActions>
         </Card>
       </Item>
+      <EditDialog
+        key={task.id}
+        task={task}
+        editDialog={editDialog}
+        setEditDialog={setEditDialog}
+      />
     </Grid>
   );
 };
