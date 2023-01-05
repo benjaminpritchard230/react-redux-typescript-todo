@@ -1,0 +1,83 @@
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Brightness4Icon from "@mui/icons-material/Brightness4";
+import Brightness7Icon from "@mui/icons-material/Brightness7";
+import { useSelector, useDispatch } from "react-redux";
+import { save, clear, doneDelete } from "../features/taskList/taskListSlice";
+import { RootState } from "../app/store";
+
+interface Props {
+  theme: string;
+  setTheme: React.Dispatch<React.SetStateAction<string>>;
+}
+
+const TopAppBar = ({ theme, setTheme }: Props) => {
+  const taskList = useSelector((state: RootState) => state.taskList.value);
+  const dispatch = useDispatch();
+  return (
+    <Box sx={{ flexGrow: 1 }}>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            React To-do App
+          </Typography>
+          {theme === "dark" ? (
+            <IconButton
+              onClick={() => {
+                setTheme("light");
+              }}
+            >
+              <Brightness7Icon />
+            </IconButton>
+          ) : (
+            <IconButton
+              onClick={() => {
+                setTheme("dark");
+              }}
+            >
+              <Brightness4Icon />
+            </IconButton>
+          )}
+
+          {/* <Button
+        onClick={() => {
+          handleDeleteDoneClick();
+        }}
+        color="inherit"
+      >
+        Delete Done
+      </Button> */}
+          {/* <Button
+        onClick={() => {
+          dispatch(clear());
+        }}
+        color="inherit"
+      >
+        Delete all
+      </Button> */}
+          {/* <Button
+        onClick={() => {
+          dispatch(
+            save({
+              name: randomString(10),
+              id: id,
+              done: false,
+            })
+          );
+          console.log(taskList);
+        }}
+        color="inherit"
+      >
+        Create task
+      </Button> */}
+        </Toolbar>
+      </AppBar>
+    </Box>
+  );
+};
+
+export default TopAppBar;
