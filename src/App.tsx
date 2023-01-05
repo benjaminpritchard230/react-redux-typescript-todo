@@ -8,7 +8,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import { RootState } from "./app/store";
 // import TaskCard from "./components/TaskCard";
-// import TaskDialog from "./components/TaskDialog";
+import TaskDialog from "./components/TaskDialog";
 // import TopAppBar from "./components/TopAppBar";
 // import FilterDialog from "./components/FilterDialog";
 import TaskCard from "./components/TaskCard";
@@ -32,6 +32,7 @@ const App = (props: Props) => {
     },
   });
   const [theme, setTheme] = useState("light");
+  const [taskDialog, setTaskDialog] = useState(false);
 
   const taskList = useSelector((state: RootState) => state.taskList.value);
 
@@ -57,14 +58,14 @@ const App = (props: Props) => {
         </Grid>
       </Box>
       <FloatingActionButtons
-      // taskDialog={taskDialog}
-      // setTaskDialog={setTaskDialog}
-      // filterDialog={filterDialog}
-      // setFilterDialog={setFilterDialog}
-      // filterText={filterText}
-      // setFilterText={setFilterText}
+        taskDialog={taskDialog}
+        setTaskDialog={setTaskDialog}
+        // filterDialog={filterDialog}
+        // setFilterDialog={setFilterDialog}
+        // filterText={filterText}
+        // setFilterText={setFilterText}
       />
-      {/* <TaskDialog taskDialog={taskDialog} setTaskDialog={setTaskDialog} /> */}
+      <TaskDialog taskDialog={taskDialog} setTaskDialog={setTaskDialog} />
       {/* <FilterDialog
         filterDialog={filterDialog}
         setFilterDialog={setFilterDialog}

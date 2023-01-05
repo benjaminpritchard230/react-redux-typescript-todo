@@ -1,11 +1,16 @@
-import * as React from "react";
 import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import AddIcon from "@mui/icons-material/Add";
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import FilterAltOffIcon from "@mui/icons-material/FilterAltOff";
 import Tooltip from "@mui/material/Tooltip";
-export default function FloatingActionButtons({}) {
+
+interface Props {
+  taskDialog: boolean;
+  setTaskDialog: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+const FloatingActionButtons = ({ taskDialog, setTaskDialog }: Props) => {
   return (
     <Box
       sx={{
@@ -23,7 +28,7 @@ export default function FloatingActionButtons({}) {
           color="primary"
           aria-label="add"
           onClick={() => {
-            // setTaskDialog(!taskDialog);
+            setTaskDialog(!taskDialog);
           }}
         >
           <AddIcon />
@@ -54,4 +59,6 @@ export default function FloatingActionButtons({}) {
       {/* </Tooltip> */}
     </Box>
   );
-}
+};
+
+export default FloatingActionButtons;
