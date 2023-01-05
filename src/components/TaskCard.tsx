@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import TextField from "@mui/material/TextField";
 import { edit } from "../features/taskList/taskListSlice";
 import { Task } from "../features/taskList/taskListSlice";
+import TaskCardButtons from "./TaskCardButtons";
 
 interface Props {
   task: Task;
@@ -38,19 +39,22 @@ const TaskCard = ({ task }: Props) => {
         <Card sx={{ minWidth: 275, minHeight: 225 }}>
           <CardContent sx={{ minHeight: 150 }}>
             <Typography variant={"h5"}>{task.name}</Typography>
+            <Typography variant={"h5"}>
+              {task.done ? "Done" : "Not done"}
+            </Typography>
           </CardContent>
 
           <CardActions style={style}>
-            {/* <TaskCardButtons
+            <TaskCardButtons
               key={task.id}
               task={task}
-              editDialog={editDialog}
-              setEditDialog={setEditDialog}
-              editText={editText}
-              setEditText={setEditText}
-              editBox={editBox}
-              setEditBox={setEditBox}
-            /> */}
+              // editDialog={editDialog}
+              // setEditDialog={setEditDialog}
+              // editText={editText}
+              // setEditText={setEditText}
+              // editBox={editBox}
+              // setEditBox={setEditBox}
+            />
           </CardActions>
         </Card>
       </Item>
