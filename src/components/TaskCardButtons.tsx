@@ -20,6 +20,9 @@ const TaskCardButtons = ({ task }: Props) => {
   const handleDoneClick = (): void => {
     dispatch(done(task.id));
   };
+  const handleDeleteClick = (): void => {
+    dispatch(remove(task.id));
+  };
   return (
     <Stack
       direction="row"
@@ -34,7 +37,7 @@ const TaskCardButtons = ({ task }: Props) => {
           }}
         >
           <Avatar>
-            <DoneIcon />
+            <DoneIcon sx={task.done ? { color: "green" } : { color: "none" }} />
           </Avatar>
         </IconButton>
       </Tooltip>
@@ -52,7 +55,7 @@ const TaskCardButtons = ({ task }: Props) => {
       <Tooltip title="Delete" placement="top">
         <IconButton
           onClick={() => {
-            // handleDeleteClick();
+            handleDeleteClick();
           }}
         >
           <Avatar>
