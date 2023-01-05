@@ -1,14 +1,13 @@
-import * as React from "react";
-import Avatar from "@mui/material/Avatar";
-import Stack from "@mui/material/Stack";
-import DoneIcon from "@mui/icons-material/Done";
 import DeleteIcon from "@mui/icons-material/Delete";
-import IconButton from "@mui/material/IconButton";
+import DoneIcon from "@mui/icons-material/Done";
 import EditIcon from "@mui/icons-material/Edit";
-import { useDispatch } from "react-redux";
-import { done, remove } from "../features/taskList/taskListSlice";
+import Avatar from "@mui/material/Avatar";
+import IconButton from "@mui/material/IconButton";
+import Stack from "@mui/material/Stack";
 import Tooltip from "@mui/material/Tooltip";
-import { Task } from "../features/taskList/taskListSlice";
+import * as React from "react";
+import { useDispatch } from "react-redux";
+import { done, remove, Task } from "../features/taskList/taskListSlice";
 // import { Icons } from 'material-table';
 
 interface Props {

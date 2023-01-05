@@ -1,15 +1,14 @@
 import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import TextField from "@mui/material/TextField";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { edit, Task } from "../features/taskList/taskListSlice";
 import { v4 as uuidv4 } from "uuid";
-import { useState } from "react";
-import { useEffect } from "react";
+import { edit, Task } from "../features/taskList/taskListSlice";
 
 interface Props {
   editDialog: boolean;

@@ -1,14 +1,14 @@
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { useSelector, useDispatch } from "react-redux";
-import { save, clear, doneDelete } from "../features/taskList/taskListSlice";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
+import { clear, doneDelete, save } from "../features/taskList/taskListSlice";
 
 interface Props {
   theme: string;

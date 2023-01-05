@@ -1,20 +1,18 @@
-import * as React from "react";
+import { Grid } from "@mui/material";
+import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import { useState, useEffect } from "react";
-import { Grid } from "@mui/material";
-import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
-// import TaskCardButtons from "./TaskCardButtons";
-import { useDispatch } from "react-redux";
+import { styled } from "@mui/material/styles";
 import TextField from "@mui/material/TextField";
-import { edit } from "../features/taskList/taskListSlice";
-import { Task } from "../features/taskList/taskListSlice";
-import TaskCardButtons from "./TaskCardButtons";
+import Typography from "@mui/material/Typography";
+import * as React from "react";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { edit, Task } from "../features/taskList/taskListSlice";
 import EditDialog from "./EditDialog";
+import TaskCardButtons from "./TaskCardButtons";
 
 interface Props {
   task: Task;
